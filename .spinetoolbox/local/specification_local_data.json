@@ -1,0 +1,21 @@
+{
+    "Tool": {
+        "Run SpineOpt": {
+            "execution_settings": {}
+        },
+        "Load template": {
+            "execution_settings": {}
+        },
+        "Run SpineOpt detached": {
+            "execution_settings": {}
+        },
+        "Print CSV": {
+            "execution_settings": {
+                "env": "",
+                "kernel_spec_name": "python311",
+                "use_jupyter_console": true,
+                "executable": ""
+            }
+        }
+    }
+}

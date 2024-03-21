@@ -1,0 +1,138 @@
+{
+    "project": {
+        "version": 13,
+        "description": "",
+        "settings": {
+            "enable_execute_all": true
+        },
+        "specifications": {
+            "Importer": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Importer/golf_data_importer.json"
+                }
+            ],
+            "Tool": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/print_csv.json"
+                }
+            ]
+        },
+        "connections": [
+            {
+                "name": "from Data Connection to Importer",
+                "from": [
+                    "Data Connection",
+                    "right"
+                ],
+                "to": [
+                    "Importer",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from Data Connection to Tool",
+                "from": [
+                    "Data Connection",
+                    "right"
+                ],
+                "to": [
+                    "Tool",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from Importer to Data Store",
+                "from": [
+                    "Importer",
+                    "right"
+                ],
+                "to": [
+                    "Data Store",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            }
+        ],
+        "jumps": []
+    },
+    "items": {
+        "Tool": {
+            "type": "Tool",
+            "description": "",
+            "x": -70.08564814814815,
+            "y": -53.064847883597885,
+            "specification": "Print CSV",
+            "execute_in_work": true,
+            "cmd_line_args": [],
+            "kill_completed_processes": false,
+            "log_process_output": false
+        },
+        "Data Connection": {
+            "type": "Data Connection",
+            "description": "",
+            "x": -228.21819439195434,
+            "y": 15.756223317516287,
+            "file_references": [],
+            "db_references": []
+        },
+        "Importer": {
+            "type": "Importer",
+            "description": "",
+            "x": -73.08931878306879,
+            "y": 82.10033068783069,
+            "specification": "Golf data importer",
+            "cancel_on_error": false,
+            "on_conflict": "merge",
+            "file_selection": [
+                [
+                    "<Data Connection>/data.csv",
+                    true
+                ]
+            ]
+        },
+        "Data Store": {
+            "type": "Data Store",
+            "description": "",
+            "x": 60.872056703339766,
+            "y": 9.272820128565844,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/data_store/Data Store.sqlite"
+                },
+                "schema": ""
+            }
+        }
+    }
+}
